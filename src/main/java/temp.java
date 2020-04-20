@@ -810,24 +810,12 @@ public class temp {
     return (left != null) ? left : right;
   }
 
-  static List<TrinaryNode> getRoute(BinaryTree tree) {
-    List<TrinaryNode> route = new ArrayList<>();
-    traverse(tree.root, route);
-    return route;
-  }
-
   static void traverse(TrinaryNode trinaryNode, List<TrinaryNode> route) {
     if(trinaryNode != null) {
       route.add(trinaryNode);
       traverse(trinaryNode.left, route);
       traverse(trinaryNode.right, route);
     }
-  }
-
-  static List<TrinaryNode> getRouteForNode(BinaryTree tree, int data) {
-    List<TrinaryNode> route = new ArrayList<>();
-    traverseForData(tree.root, route, data);
-    return route;
   }
 
   static void traverseForData(TrinaryNode trinaryNode, List<TrinaryNode> route, int data) {

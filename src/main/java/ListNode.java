@@ -12,11 +12,6 @@ public class ListNode {
   }
 
   public ListNode addNode(int val) {
-    ListNode cur = next;
-
-    while(cur != null) {
-      cur = cur.next;
-    }
     next = new ListNode(val);
     return next;
   }
