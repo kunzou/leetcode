@@ -3,10 +3,10 @@ import java.util.Map;
 
 public class LeetCode138 {
 
-  public static Node copyRandomList(Node head) {
-    Node result = copyNode(head);
-    Node cur = result;
-    Map<Node, Node> record = new HashMap<>();
+  public static NodeRamdom copyRandomList(NodeRamdom head) {
+    NodeRamdom result = copyNode(head);
+    NodeRamdom cur = result;
+    Map<NodeRamdom, NodeRamdom> record = new HashMap<>();
 
     record.put(head, cur);
 
@@ -41,14 +41,14 @@ public class LeetCode138 {
     return result;
   }
 
-  static Node copyNode(Node node) {
-    return new Node(node.val);
+  static NodeRamdom copyNode(NodeRamdom node) {
+    return new NodeRamdom(node.val);
   }
 
-  public static Node copyRandomList_tooSlow(Node head) {
-    Node result = copyNode(head);
-    Node cur = result;
-    Map<Integer, Node> record = new HashMap<>();
+  public static NodeRamdom copyRandomList_tooSlow(NodeRamdom head) {
+    NodeRamdom result = copyNode(head);
+    NodeRamdom cur = result;
+    Map<Integer, NodeRamdom> record = new HashMap<>();
 
     record.put(result.val, result);
 

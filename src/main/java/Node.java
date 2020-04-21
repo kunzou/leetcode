@@ -1,41 +1,29 @@
-import java.util.Optional;
+class Node {
+  public int val;
+  public Node left;
+  public Node right;
+  public Node next;
 
-public class Node {
-  int val;
-  Node next;
-  Node random;
+  public Node() {}
 
-  public Node(int val) {
-    this.val = val;
-    this.next = null;
-    this.random = null;
+  public Node(int _val) {
+    val = _val;
   }
 
-  public void print() {
-    Node cur = this;
-    while(cur.next!=null) {
-      System.out.print(String.format("%d(%s)->", cur.val, cur.random==null?"":cur.random.val));
-      cur=cur.next;
-    }
-    System.out.println(String.format("%d(%s)", cur.val, cur.random==null?"":cur.random.val));
+  public Node(int _val, Node _left, Node _right, Node _next) {
+    val = _val;
+    left = _left;
+    right = _right;
+    next = _next;
   }
 
-  public Node coppyNode() {
-    return new Node(val);
+  public Node addLeft(Node left) {
+    this.left = left;
+    return this;
   }
 
-  public Node addNode(int val) {
-    Node cur = next;
-
-    while(cur != null) {
-      cur = cur.next;
-    }
-    next = new Node(val);
-    return next;
-  }
-
-  public void setRandom(Node random) {
-    this.random = random;
-  }
+  public Node addRight(Node right) {
+    this.right = right;
+    return this;
+  }  
 }
-

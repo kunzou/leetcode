@@ -1,24 +1,55 @@
-
-import com.google.common.math.IntMath;
-import org.apache.commons.lang3.tuple.MutablePair;
-import org.apache.commons.lang3.tuple.MutableTriple;
-import org.apache.commons.lang3.tuple.Pair;
-import org.apache.commons.lang3.tuple.Triple;
-
-import java.math.RoundingMode;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-import org.redisson.Redisson;
-import org.redisson.api.RBucket;
-import org.redisson.api.RMap;
-import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
 
 public class Main {
   public static void main(String[] args) {
-    solve1();
+    solve116();
+  }
+
+  static void solve116() {
+    Node node2 = new Node(2);
+    Node node3 = new Node(3);
+    node2.addLeft(new Node(4)).addRight(new Node(5));
+    node3.addLeft(new Node(6)).addRight(new Node(7));
+    Node node1 = new Node(1);
+    node1.addLeft(node2).addRight(node3);
+
+    new LeetCode116().connect(node1);
+  }
+
+  static void solve151() {
+    System.out.println(new LeetCode151().reverseWords(" 1"));
+  }
+
+  static void numbersWithEqualDigitSum() {
+    int[] numbers = {51, 71, 17, 42, 33, 44, 24, 62};
+    System.out.println(new MS_NumbersWithEqualDigitSum().numbersWithEqualDigitSum(numbers));
+  }
+
+  static void solve103() {
+    TreeNode treeNode20 = new TreeNode(20);
+    treeNode20.addLeft(new TreeNode(15)).addRight(new TreeNode(7));
+    TreeNode node = new TreeNode(3);
+    node.addLeft(new TreeNode(9)).addRight(treeNode20);
+
+    new LeetCode103().zigzagLevelOrder(node);
+  }
+
+  static void solve53() {
+    int[] nums = {1};
+    System.out.println(new LeetCode53().maxSubArray(nums));
+  }
+  
+  static void solve186() {
+    char[] input = {'t','h','e',' ','s','k','y',' ','i','s',' ','b','l','u','e'};
+    new LeetCode186().reverseWords(input);
+    System.out.println(input);
+  }
+  
+  static void solve218() {
+    int[][] buildings = {{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}};
+//    int[][] buildings = {{0,2,3},{2,5,3}};
+//    int[][] buildings = {{1,2,1},{1,2,2},{1,2,3}};
+    new LeetCode218().getSkyline(buildings);
   }
 
   static void solve1() {
@@ -99,7 +130,7 @@ public class Main {
   }
 
   static void solve138() {
-    Node head = new Node(7);
+    NodeRamdom head = new NodeRamdom(7);
     head.addNode(13).addNode(11).addNode(10).addNode(1);
     head.next.setRandom(head);
     head.next.next.setRandom(head.next.next.next.next);

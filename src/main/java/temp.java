@@ -663,8 +663,6 @@ public class temp {
     return span;
   }
 
-
-
   public static int[] getNextGreater() {
 //    int[] numbers = new int[]{4, 5, 2, 25};
     int[] numbers = new int[]{4, 73, 21, 25};
