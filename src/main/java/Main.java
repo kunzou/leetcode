@@ -2,10 +2,80 @@ import java.util.*;
 
 public class Main {
   public static void main(String[] args) {
-    solve116();
+    solveOptimalUtilization();
+  }
+
+  static void solveOptimalUtilization() {
+
+    int[][] alist = {{1, 8}, {2, 7}, {3, 14}};
+    int[][] blist = {{1, 5}, {2, 10}, {3, 14}};
+    List<int[]> a = Arrays.asList(alist);
+    List<int[]> b = Arrays.asList(blist);
+
+    System.out.println(new AMZ_OptimalUtilization().getPairs(a, b, 20));
+
+  }
+
+  static void solveTreasure() {
+    char[][] island = new char[][]{
+        {'O', 'O', 'O', 'O'},
+        {'D', 'O', 'D', 'O'},
+        {'O', 'O', 'O', 'O'},
+        {'X', 'D', 'D', 'O'}
+    };
+    System.out.println(new AMZ_TresureIsland().treasureIsland(island));
+  }
+
+  static void solve763() {
+//    String s = "ababcbacadefegdehijhklij";
+//    String s = "caedbdedda";
+    String s = "eaaaabaaec";
+//    String s = "vhaagbqkaq";
+    System.out.println(new LeetCode763().partitionLabels(s));
+  }
+
+  static void solve937() {
+    String[] logs = {"dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"};
+    System.out.println(new LeetCode937().reorderLogFiles(logs));
+  }
+
+  static void solve1168() {
+    String[] products = {"mobile","mouse","moneypot","monitor","mousepad"};
+    String searchWord = "mouse";
+    new LeetCode1268().suggestedProducts(products, searchWord);
+  }
+
+  static void solve286() {
+    int[][] rooms = {{3,-1,0,1},{2,2,1,-1},{1,-1,2,-1},{0,-1,3,4}};
+    new LeetCode286().wallsAndGates(rooms);
+    printArray(rooms);
+  }
+
+  static void solve1192() {
+    List<List<Integer>> lists = new ArrayList<>();
+    lists.add(Arrays.asList(0,1));
+    lists.add(Arrays.asList(1,2));
+    lists.add(Arrays.asList(2,0));
+    lists.add(Arrays.asList(1,3));
+    System.out.println(new LeetCode1192().criticalConnections(4, lists));
+  }
+
+//739,560,234
+  static void solve994() {
+    int[][] grid = {{2,1,1},{1,1,0},{0,1,1}};
+//    int[][] grid = {{0}};
+//    int[][] grid = {{1,2}};
+    System.out.println(new LeetCode994().orangesRotting(grid));
+  }
+
+  static void solve234() {
+    ListNode listNode = new ListNode(0);
+    listNode.addNode(1).addNode(0);
+    System.out.println(new LeetCode234().isPalindrome(listNode));
   }
 
   static void solve116() {
+    Stack<Integer> integers = new Stack<>();LinkedList linkedList = new LinkedList();
     Node node2 = new Node(2);
     Node node3 = new Node(3);
     node2.addLeft(new Node(4)).addRight(new Node(5));
@@ -176,5 +246,12 @@ public class Main {
 
   static void printArray(int[] array) {
     System.out.println(Arrays.toString(array));
+  }
+
+  static void printArray(int[][] array) {
+    for(int i = 0; i < array.length; i++) {
+      printArray(array[i]);
+//      System.out.println("\n");
+    }
   }
 }
