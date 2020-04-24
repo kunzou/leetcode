@@ -51,4 +51,32 @@ public class Utlity {
 
   }
 
+  public String generatepreorderString_DFS(TreeNode s){
+    StringBuilder sb = new StringBuilder();
+    Stack<TreeNode> stacktree = new Stack();
+    stacktree.push(s);
+    while(!stacktree.isEmpty()){
+      TreeNode popelem = stacktree.pop();
+      if(popelem==null) {
+        sb.append(",#"); // Appending # inorder to handle same values but not subtree cases
+      } else {
+        sb.append(","+popelem.val);
+      }
+      if(popelem!=null){
+        stacktree.push(popelem.right);
+        stacktree.push(popelem.left);
+      }
+    }
+    return sb.toString();
+  }
+
+
+  /* sum
+
+  Integer sum = integers.stream()
+  .reduce(0, Integer::sum);
+
+ int sum = Arrays.stream(nums).sum();
+  */
+
 }
