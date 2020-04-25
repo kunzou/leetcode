@@ -1,27 +1,5 @@
 public class LeetCode64 {
   public int minPathSum(int[][] grid) {
-    int ROW_MAX = grid.length;
-    int COL_MAX = grid[0].length;
-    int[][] sumMap = new int[ROW_MAX][COL_MAX];
-
-    sumMap[0][0] = grid[0][0];
-    for(int row = 0; row < ROW_MAX; row++) {
-      for (int col = 0; col < COL_MAX; col++) {
-        if(row > 0 && col >0) {
-          sumMap[row][col] = grid[row][col] + Math.min(sumMap[row-1][col], sumMap[row][col-1]);
-        }
-        else if(row == 0 && col > 0) {
-          sumMap[row][col] = grid[row][col]+sumMap[row][col-1];
-        }
-        else if(row > 0) {
-          sumMap[row][col] = grid[row][col]+sumMap[row-1][col];
-        }
-      }
-    }
-    return sumMap[ROW_MAX-1][COL_MAX-1];
-  }
-
-/*  public int minPathSum(int[][] grid) {
     Integer[][] cache = new Integer[grid.length][grid[0].length];
     return calMin(grid, 0, 0, cache);
   }
@@ -48,6 +26,26 @@ public class LeetCode64 {
 
     cache[row][col] = grid[row][col] + Math.min(calMin(grid, row+1, col, cache), calMin(grid, row, col+1, cache));
     return cache[row][col];
-  }*/
+  }
+/*  public int minPathSum(int[][] grid) {
+    int ROW_MAX = grid.length;
+    int COL_MAX = grid[0].length;
+    int[][] sumMap = new int[ROW_MAX][COL_MAX];
 
+    sumMap[0][0] = grid[0][0];
+    for(int row = 0; row < ROW_MAX; row++) {
+      for (int col = 0; col < COL_MAX; col++) {
+        if(row > 0 && col >0) {
+          sumMap[row][col] = grid[row][col] + Math.min(sumMap[row-1][col], sumMap[row][col-1]);
+        }
+        else if(row == 0 && col > 0) {
+          sumMap[row][col] = grid[row][col]+sumMap[row][col-1];
+        }
+        else if(row > 0) {
+          sumMap[row][col] = grid[row][col]+sumMap[row-1][col];
+        }
+      }
+    }
+    return sumMap[ROW_MAX-1][COL_MAX-1];
+  }*/
 }

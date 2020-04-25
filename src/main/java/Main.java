@@ -2,20 +2,72 @@ import java.util.*;
 
 public class Main {
   public static void main(String[] args) {
-    solve64();
+    solve896();
+  }
+
+  static void solve896() {
+//    int[] grid = {5,3,2,4,1};
+    int[] grid = {-1,-1,0};
+//    int[] grid = {6,5,4,4};
+//    int[] grid = {1,2,2,3};
+//        {"10","0001","111001","1","0"};
+//        {"00", "000"};
+    System.out.println(new LeetCode896().isMonotonic(grid));
+  }
+
+  static void sovlve973() {
+    int[][] grid =
+        {{3,3},{5,-1},{-2,4}};
+    printArray(new LeetCode973().kClosest(grid, 2));
+  }  
+  
+  static void AMZ_BattleShip() {
+    String S = "1B 2C,2D 4D";
+    String T = "2B 2D 3D 4D 4A";
+//    String S="1A 1B,2C 2C";
+//    String T="1B";
+    System.out.println(new AMZ_BattleShip().solution(4, S, T));
+  }
+
+  static void sovlve474() {
+    String[] grid =
+//        {"10","0001","111001","1","0"};
+        {"00", "000"};
+    System.out.println(new LeetCode474().findMaxForm(grid, 3, 4));
+  }
+
+
+  static void sovlve63() {
+    int[][] grid =
+        {
+            {0,0,0},
+            {0,1,0},
+            {0,0,0}
+        };
+    System.out.println(new LeetCode63().uniquePathsWithObstacles(grid));
+  }
+
+  static void maxOfMinAltitudes() {
+    int[][] numbers =
+        {
+            {6, 7, 8},
+            {5, 4, 2},
+            {8, 7, 6}
+        };
+    System.out.println(new AMZ_MaxOfMinAltitudes().minOfMinAltitudes(numbers));
   }
 
   static void solve64() {
     int[][] numbers =
-/*        {
+        {
             {1, 3, 1},
             {1, 5, 1},
             {4, 2, 1}
-        };*/
-    {
+        };
+/*    {
         {1,2},
         {1,1}
-    };
+    };*/
     System.out.println(new LeetCode64().minPathSum(numbers));
   }
 
