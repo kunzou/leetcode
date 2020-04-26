@@ -9,6 +9,8 @@ public class LeetCode994 {
     int rottens = 0;
     int minutes = 0;
     int total = 0;
+    int[][] DIRS = {{0,1},{0,-1},{1,0},{-1,0}};
+
     for(int row = 0; row < ROW_MAX; row++) {
       for(int col = 0; col < COL_MAX; col++) {
         if(grid[row][col] == 2) {
@@ -31,7 +33,20 @@ public class LeetCode994 {
         Cell cell = cells.poll();
         total--;
 
-        if(cell.getRow() < ROW_MAX - 1 && grid[cell.getRow()+1][cell.getCol()] == 1) {
+        for(int[] dir : DIRS) {
+          int row = cell.getRow() + dir[0];
+          int col = cell.getCol() + dir[1];
+
+          if(row < 0 || row > ROW_MAX - 1 || col < 0 || col > COL_MAX -1) {
+            continue;
+          }
+          if(grid[row][col] ==1 ) {
+            cells.add(new Cell(row, col));
+            grid[row][col] = 2;
+          }
+        }
+
+/*        if(cell.getRow() < ROW_MAX - 1 && grid[cell.getRow()+1][cell.getCol()] == 1) {
           cells.add(new Cell(cell.getRow()+1, cell.getCol()));
           grid[cell.getRow()+1][cell.getCol()] = 2;
         }
@@ -49,7 +64,7 @@ public class LeetCode994 {
         if(cell.getCol() > 0 && grid[cell.getRow()][cell.getCol()-1] == 1) {
           cells.add(new Cell(cell.getRow(), cell.getCol()-1));
           grid[cell.getRow()][cell.getCol()-1] = 2;
-        }
+        }*/
 
       }
       minutes++;

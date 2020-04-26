@@ -3,9 +3,59 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LeetCode1192 {
-  List<List<Integer>> res = new ArrayList<>(); // 返回结果
+/*critical bridge/node*/
+  public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
+    int[] stepsToNode = new int[n];
+    int[] lowestStepsToNode = new int[n];
+    List<Integer>[] graph = new ArrayList[n];
+    List<List<Integer>> result = new ArrayList<>();
+    Arrays.fill(stepsToNode, -1); // unvisited nodes are marked as -1
+    for (int i = 0; i < n; i++) {
+      graph[i] = new ArrayList<>();
+    }
+    // build graph
+    for (int i = 0; i < connections.size(); i++) {
+      int from = connections.get(i).get(0), to = connections.get(i).get(1);
+      graph[from].add(to);
+      graph[to].add(from);
+    }
+
+    for (int i = 0; i < n; i++) {
+      if (stepsToNode[i] == -1) {
+        dfs(i, lowestStepsToNode, stepsToNode, graph, result, i, 0);
+      }
+    }
+    return result;
+  }
+
+  private void dfs(int currentNode, int[] lowestStepsToNode, int[] stepsToNode, List<Integer>[] graph, List<List<Integer>> result, int parent, int steps) {
+    steps++;
+    stepsToNode[currentNode] = steps;
+    lowestStepsToNode[currentNode] = steps;
+    for (int child : graph[currentNode]) {
+      if (child == parent) {
+        continue; // if parent vertex, ignore
+      }
+      if (stepsToNode[child] == -1) { // if not discovered
+        dfs(child, lowestStepsToNode, stepsToNode, graph, result, currentNode, steps);
+        lowestStepsToNode[currentNode] = Math.min(lowestStepsToNode[currentNode], lowestStepsToNode[child]);
+        if (lowestStepsToNode[child] > stepsToNode[currentNode]) {
+          // this parent - child is critical, there is no path for child to reach back to parent or previous vertices of parent
+          result.add(Arrays.asList(currentNode, child));
+        }
+      } else { // if child is discovered and is not the parent of its parent, update lowest step
+        lowestStepsToNode[currentNode] = Math.min(lowestStepsToNode[currentNode], stepsToNode[child]);
+      }
+    }
+  }
+
+
+
+
+/*  List<List<Integer>> res = new ArrayList<>(); // 返回结果
   int[] deepArray; // 深度数组
   ArrayList<Integer>[] map; // 结构图
+
   public List<List<Integer>> criticalConnections(int n, List<List<Integer>>connections){
     deepArray = new int[n]; // 初始化深度数组
     Arrays.fill(deepArray, -1); // 所有节点初始深度为-1
@@ -52,6 +102,6 @@ public class LeetCode1192 {
       result = Math.min(result, endDeep);
     }
     return result; // 返回最小深度
-  }
+  }*/
 }
 

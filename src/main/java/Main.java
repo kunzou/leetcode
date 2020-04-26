@@ -2,7 +2,46 @@ import java.util.*;
 
 public class Main {
   public static void main(String[] args) {
-    solve896();
+//    AMZ_OAS_TRY_1();
+    Question2();
+  }
+
+  static void Question2() {
+//    List<String> logLines = Arrays.asList("mi2 jog mid pet", "mi2 jog mid pet", "mi2 jog mid petr");
+//    List<String> logLines = Arrays.asList("mi2 jog mid pet", "wz3 34 54 398", "a1 alps cow bar", "x4 45 21 7");
+    List<String> logLines = Arrays.asList("t2 13 121 98", "r1 box ape bit", "b4 xi me nu", "br8 eat nim did", "w1 has uni gry", "f3 52 54 31");
+    System.out.println(new AMZ_OAS_TRY_1_Q2().reorderLines(4, logLines));
+  }
+
+  static void AMZ_OAS_TRY_1() {
+//    23280666278359
+    List<List<Integer>> input = new ArrayList<>();
+    input.add(Arrays.asList(1,1,0,0));
+    input.add(Arrays.asList(0,0,0,0));
+    input.add(Arrays.asList(0,0,1,1));
+    input.add(Arrays.asList(0,0,0,0));
+
+
+    System.out.println(new AMZ_OAS_TRY_1_Q1().numberAmazonGoStores(4,4,input));
+  }
+
+  static void AMZ_SubstringsOfSizeKWithKDistinctChars() {
+//    String s = "abcabc";
+    String s = "abacab";
+//    String s = "awaglknagawunagwkwagl";
+    System.out.println(new AMZ_SubstringsOfSizeKWithKDistinctChars().Count(s, 3));
+  }
+
+  static void solveAmzCriticalRouters() {
+    List<List<Integer>> lists = new ArrayList<>();
+    lists.add(Arrays.asList(0,1));
+    lists.add(Arrays.asList(0,2));
+    lists.add(Arrays.asList(1,3));
+    lists.add(Arrays.asList(2,3));
+    lists.add(Arrays.asList(2,5));
+    lists.add(Arrays.asList(5,6));
+    lists.add(Arrays.asList(3,4));
+    System.out.println(new AMZ_criticalNodes().criticalConnections(7, lists));
   }
 
   static void solve896() {
@@ -250,10 +289,13 @@ public class Main {
   static void solve1192() {
     List<List<Integer>> lists = new ArrayList<>();
     lists.add(Arrays.asList(0,1));
-    lists.add(Arrays.asList(1,2));
-    lists.add(Arrays.asList(2,0));
+    lists.add(Arrays.asList(0,2));
     lists.add(Arrays.asList(1,3));
-    System.out.println(new LeetCode1192().criticalConnections(4, lists));
+    lists.add(Arrays.asList(2, 3));
+    lists.add(Arrays.asList(2, 5));
+    lists.add(Arrays.asList(5, 6));
+    lists.add(Arrays.asList(3, 4));
+    System.out.println(new LeetCode1192().criticalConnections(7, lists));
   }
 
 //739,560,234

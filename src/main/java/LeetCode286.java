@@ -6,13 +6,14 @@ public class LeetCode286 {
     int MAX_ROW = rooms.length;
     int MAX_COL = rooms[0].length;
     int INF = 2147483647;
+    int[][] DIRS = {{0,1},{0,-1},{1,0},{-1,0}};
 
-    Queue<Room> roomQueue = new LinkedList<>();
+    Queue<int[]> roomQueue = new LinkedList<>();
     int steps = 0;
     for(int row = 0; row < MAX_ROW; row++) {
       for(int col = 0; col < MAX_COL; col++) {
         if(rooms[row][col] == 0) {
-          roomQueue.add(new Room(row, col));
+          roomQueue.add(new int[]{row, col});
         }
       }
     }
@@ -21,8 +22,23 @@ public class LeetCode286 {
       int size = roomQueue.size();
       steps++;
       for(int i = 0; i < size; i++) {
-        Room curRoom = roomQueue.poll();
-        if(curRoom.getRow() > 0 && rooms[curRoom.getRow()-1][curRoom.getCol()] == INF) {
+        int[] curRoom = roomQueue.poll();
+
+        for (int[] dir : DIRS) {
+          int row = curRoom[0] + dir[0];
+          int col = curRoom[1] + dir[1];
+
+          if(row < 0 || row > MAX_ROW - 1 || col < 0 || col > MAX_COL - 1) {
+            continue;
+          }
+
+          if(rooms[row][col] == INF) {
+            rooms[row][col] = steps;
+            roomQueue.add(new int[]{row, col});
+          }
+        }
+
+/*      if(curRoom.getRow() > 0 && rooms[curRoom.getRow()-1][curRoom.getCol()] == INF) {
           rooms[curRoom.getRow()-1][curRoom.getCol()] = steps;
           roomQueue.add(new Room(curRoom.getRow()-1, curRoom.getCol()));
         }
@@ -40,11 +56,10 @@ public class LeetCode286 {
         if(curRoom.getCol() > 0 && rooms[curRoom.getRow()][curRoom.getCol()-1] == INF) {
           rooms[curRoom.getRow()][curRoom.getCol()-1] = steps;
           roomQueue.add(new Room(curRoom.getRow(), curRoom.getCol()-1));
-        }
+        }*/
 
       }
     }
-
   }
 
   public void wallsAndGates_DFS(int[][] rooms) {
