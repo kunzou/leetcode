@@ -17,6 +17,16 @@ public class TreeNode {
     return this;
   }
 
+  public TreeNode addLeft(int left) {
+    this.left = new TreeNode(left);
+    return this;
+  }
+
+  public TreeNode addRight(int right) {
+    this.right = new TreeNode(right);
+    return this;
+  }
+
   public String toString() {
     return String.valueOf(val);
   }

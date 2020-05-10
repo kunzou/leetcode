@@ -45,27 +45,6 @@ public class LeetCode994 {
             grid[row][col] = 2;
           }
         }
-
-/*        if(cell.getRow() < ROW_MAX - 1 && grid[cell.getRow()+1][cell.getCol()] == 1) {
-          cells.add(new Cell(cell.getRow()+1, cell.getCol()));
-          grid[cell.getRow()+1][cell.getCol()] = 2;
-        }
-
-        if(cell.getRow() > 0 && grid[cell.getRow()-1][cell.getCol()] == 1) {
-          cells.add(new Cell(cell.getRow()-1, cell.getCol()));
-          grid[cell.getRow()-1][cell.getCol()] = 2;
-        }
-
-        if(cell.getCol() < COL_MAX - 1 && grid[cell.getRow()][cell.getCol()+1] == 1) {
-          cells.add(new Cell(cell.getRow(), cell.getCol()+1));
-          grid[cell.getRow()][cell.getCol()+1] = 2;
-        }
-
-        if(cell.getCol() > 0 && grid[cell.getRow()][cell.getCol()-1] == 1) {
-          cells.add(new Cell(cell.getRow(), cell.getCol()-1));
-          grid[cell.getRow()][cell.getCol()-1] = 2;
-        }*/
-
       }
       minutes++;
     }

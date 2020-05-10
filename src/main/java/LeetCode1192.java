@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class LeetCode1192 {
 /*critical bridge/node*/
@@ -15,7 +16,8 @@ public class LeetCode1192 {
     }
     // build graph
     for (int i = 0; i < connections.size(); i++) {
-      int from = connections.get(i).get(0), to = connections.get(i).get(1);
+      int from = connections.get(i).get(0);
+      int to = connections.get(i).get(1);
       graph[from].add(to);
       graph[to].add(from);
     }
@@ -44,7 +46,7 @@ public class LeetCode1192 {
           result.add(Arrays.asList(currentNode, child));
         }
       } else { // if child is discovered and is not the parent of its parent, update lowest step
-        lowestStepsToNode[currentNode] = Math.min(lowestStepsToNode[currentNode], stepsToNode[child]);
+        lowestStepsToNode[currentNode] = Math.min(lowestStepsToNode[currentNode], lowestStepsToNode[child]);
       }
     }
   }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphNode {
+/*public class GraphNode {
   int data;
   boolean visited;
   List<GraphNode> neighbours;
@@ -23,4 +23,4 @@ public class GraphNode {
   public void setNeighbours(List<GraphNode> neighbours) {
     this.neighbours = neighbours;
   }
-}
+}*/

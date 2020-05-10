@@ -11,6 +11,10 @@ public class ListNode {
     System.out.println(cur.val);
   }
 
+  public int getVal() {
+    return val;
+  }
+
   public ListNode addNode(int val) {
     next = new ListNode(val);
     return next;

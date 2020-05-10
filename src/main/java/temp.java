@@ -715,10 +715,11 @@ public class temp {
 //    return pairs.stream().
 //  }
 
+
   Integer getListWithSumOf(Integer integer, Integer sum, Set<Integer> numbers) {
     return numbers.contains(sum-integer)?sum-integer:null;
   }
-
+/*
   GraphNode createGraph() {
     GraphNode node40 =new GraphNode(40);
     GraphNode node10 =new GraphNode(10);
@@ -784,7 +785,7 @@ public class temp {
           });
 
     }
-  }
+  }*/
 
   public static TrinaryNode LCA(TrinaryNode root, TrinaryNode a, TrinaryNode b) {
     if (root == null) {
